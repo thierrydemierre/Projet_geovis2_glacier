@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Les glaciers suisses</title>
+  <meta charset = "utf-8"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+  <script src="http://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <link rel="stylesheet" href="/static/style.css"/>
+  </head>
+  <body>
+    <div class = "main">
+  <div id="map" class="glaciers"></div>
+  <div id= "coordonnees">Coordonnées: déplacez la souris sur la carte</div>
+  <div class = "sidebar_gl">
+    <p class= "explication"> Choix du glacier:</p>
+    <form autocomplete="off" id= "glacier_form">
+      <div class="autocomplete" style="width:300px;">
+        <input id="myInput" type="text" name="myGlacier" placeholder="Glaciers">
+      </div>
+       <input id = "button_submit" type="submit">
+    </form>
+      </div>
+    </div>
+  <div class="sidebar">
+    <p class= "explication"> Cette carte permet d'avoir des informations sur les glaciers en Suisse</p>
+    <p><b> Paramètres disponibles: </b></p>
+    <div class="recherche">
+      <select id="menu_param" onclick="dessineGraphique()">
+        <option value ="1"> Longueur </option>
+        <option value = "2"> Altitude de la ligne d'équilibre </option>
+        <option value = "3"> Bilan de masse annuel </option>
+        <option value = "4"> Bilan de masse en hiver </option>
+        <option value = "5"> Bilan de masse en été </option>
+      </select>
+    </div>
+    <div class="infobox">
+      <table cellpadding= "3">
+        <tr>
+          <td><b>Cliquez sur un marqueur pour visualiser les différents paramètres disponibles</b></td>
+        </tr>
+        <tr>
+          <td>La différence de longueur est calculée en mètre sur une année de septembre à septembre.</td>
+        </tr>
+        <tr>
+        <td>L'altitude de la ligne d'équilibre est calculée en mètre asl. (above see level) sur une année de début octobre à fin septembre.</td>
+      </tr>
+      <tr>
+        <td>Le bilan de masse annuel est calculé en milimètres w.e (water equivalent) sur une année de début octobre à fin septembre.</td>
+      </tr>
+      <tr>
+        <td>Le bilan de masse en hiver est calculé en milimètres w.e de début octobre à fin avril</td>
+      </tr>
+      <tr>
+        <td>Le bilan de masse en été est calculé en milimètres w.e de fin avril à fin septembre</td>
+      </tr>
+
+
+        </div>
+            <div class= "copyright">
+            2020 © Thierry Demierre
+          </div>
+        </div>
+
+  <script src="/static/index_glacier.js"></script>
+
+<div id="graph_length" class= "graph">
+
+</div>
+    </body>
+    </html>
